@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem "figaro"
 gem 'hirb', '~> 0.7.3'
 gem 'stripe'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.2.0'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
