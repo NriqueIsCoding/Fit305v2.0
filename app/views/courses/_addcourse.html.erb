@@ -1,0 +1,93 @@
+<!-- Add New Course  -->
+
+<%= form_with model: course, local: true,  html:{multipart: true} do |form| %>
+
+  <% if course.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(course.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+        <ul>
+        <% course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :course_image %>
+  </div>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :course_name %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :course_description %>
+  </div>
+
+  <!-- Location Params Begin -->
+
+<div class="field">
+  <%= form.label :address %>
+  <%= form.text_area :address, id: :course_address %>
+</div>
+<div class="field">
+  <%= form.label :address2 %>
+  <%= form.text_area :address2, id: :course_address2 %>
+</div>
+<div class="field">
+  <%= form.label :city %>
+  <%= form.text_area :city, id: :course_city %>
+</div>
+<div class="field">
+  <%= form.label :state %>
+  <%= form.text_area :state, id: :course_state %>
+</div>
+<div class="field">
+  <%= form.label :zip %>
+  <%= form.text_area :zip, id: :course_zip %>
+</div>
+<!-- Location Params End  -->
+
+  <div class="field">
+    <%= form.label 'Price' %>
+    <%= form.text_field :price, id: :course_price %>
+  </div>
+  <div class="container">
+  <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="course[date]"/>
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+
+  <% if @instructor.nil? %>
+    <div class="field">
+      <%= form.label :instructor_id %>
+      <%= form.text_field :instructor_id %>
+    </div>
+
+  <% else %>
+   <%= form.hidden_field :instructor_id, value: @instructor.id %>
+  <% end %>
+  <hr>
+  <div class="actions">
+    <%= form.submit "Create Course" %>
+  </div>
+  <hr>
+<% end %>

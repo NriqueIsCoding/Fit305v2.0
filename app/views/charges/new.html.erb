@@ -1,0 +1,23 @@
+
+<% temp = (params[:course]).to_i %>
+<% price = (temp * 100) %>
+
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount:<%= temp %> </span>
+    </label>
+  </article>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= ENV['stripe_publishable_key'] %>"
+          data-description="Class"
+          data-amount= <%= price %>
+          data-locale="auto"></script>
+<% end %>
+
+<td><%= link_to 'Go back', customer_path(current_customer) %> </td>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+<<<<<<< HEAD
+  username: MyString
+  last_name: MyString
+  first_name: MyString
+=======
+  name: MyString
+>>>>>>> initial commit
+  email: MyString
+  password_digest: MyString
+
+two:
+<<<<<<< HEAD
+  username: MyString
+  last_name: MyString
+  first_name: MyString
+=======
+  name: MyString
+>>>>>>> initial commit
+  email: MyString
+  password_digest: MyString

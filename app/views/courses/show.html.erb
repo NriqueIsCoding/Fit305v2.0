@@ -1,0 +1,60 @@
+<!-- <p id="notice"><%= notice %></p>  -->
+
+<h1>Course</h1>
+<p class="title">
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+<p class="description">
+  <strong>Description:</strong>
+  <%= @course.description %>
+</p>
+<p>
+  <strong>Course Photo:</strong>
+  <br>
+  <%= image_tag @course.image.url(:medium) %>
+</p>
+
+<br>
+<hr>
+
+<p>
+  <strong>Course Location:</strong>
+  <br>
+  <h3>This map is rendered, found in: views/courses/show.html.erb</h3>
+  <%= render 'map', courses: @course %>
+  <p>Method: full_street_address | Address of course:<%= @course.full_street_address %></p>
+
+  <p><%= @course.lat %></p>
+  <p><%= @course.lng %></p>
+
+</p>
+
+<p class="price">
+  <strong>Price:</strong>
+  <%=  @course.price %>
+</p>
+
+<p class="date">
+  <strong>Date:</strong>
+  <%= @course.date %>
+</p>
+<p class="instructor">
+  <strong>Instructor:</strong>
+  <%= image_tag @course.instructor.image.url(:thumb) %><br>
+  <strong>Name:</strong>
+  <%= @course.instructor.first_name %><br>
+  <strong>ID:</strong>
+  <%= @course.instructor.id%><br>
+  <%#= link_to 'Learn More...', @course.instructor %>
+  <%= link_to 'Learn More...', individual_path(instructor: @course.instructor) %>
+
+</p>
+
+<% if session[:instructor_id] %>
+<td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
+<%= link_to 'Edit', edit_course_path(@course) %>
+<% else %>
+<td><%= link_to 'Go Back', courses_path%> </td>
+<td><%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post%></td>
+<% end %>

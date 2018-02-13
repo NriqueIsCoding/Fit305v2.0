@@ -1,0 +1,7 @@
+I"f(function() {
+  jQuery(function() {});
+
+  $('#course_course_date').datepicker();
+
+}).call(this);
+:ET

@@ -1,0 +1,34 @@
+
+<h1>Current Customer</h1>
+<p>
+  <strong>Username:</strong>
+  <%= @customer.username %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @customer.last_name %>
+</p>
+<p>
+  <strong>First name:</strong>
+  <%= @customer.first_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+<%= link_to 'Edit', edit_customer_path(@customer) %>
+<!-- <%= link_to 'Back', instructors_path %> -->
+<br>
+
+<hr>
+
+<h1>My Courses</h1>
+
+  <%= render 'courses/current', courses: @customer.courses if @customer.courses.any? %>
+
+<hr>
+
+<%= link_to 'Check out our Classes', courses_path %>
+
+<!-- <%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %> -->

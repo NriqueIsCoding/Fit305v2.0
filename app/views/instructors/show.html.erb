@@ -1,0 +1,46 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<h1>Current Instructor</h1>
+<p>
+  <strong>Instructor Photo:</strong><br>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @instructor.username %>
+</p>
+<p>
+  <strong>First name:</strong>
+  <%= @instructor.first_name %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @instructor.last_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @instructor.email %>
+</p>
+<%= link_to 'Edit', edit_instructor_path(@instructor) %>
+<%#= link_to 'Show', instructor_path %>
+<%= link_to 'Remove', @instructor, method: :delete, data: { confirm: 'Are you sure?' }%>
+<%#= link_to 'Back', instructors_path %>
+<br>
+
+<hr>
+
+<h1>Current Courses</h1>
+
+<% if @instructor.courses.any? %>
+  <%= render 'courses/current', courses: @instructor.courses%>
+<% else  %>
+  <h3>No courses Added yet...</h3>
+<% end %>
+
+<hr>
+
+<h1>Add New Course</h1>
+
+<%= render 'courses/addcourse', course: @instructor.courses.new %>
+
+<%= link_to 'Log out', logout_path %>

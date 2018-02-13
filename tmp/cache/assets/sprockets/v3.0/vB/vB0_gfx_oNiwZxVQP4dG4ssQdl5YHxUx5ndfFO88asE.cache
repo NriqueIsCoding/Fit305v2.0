@@ -1,0 +1,7 @@
+I"_(function() {
+  $('#date').datetimepicker({
+    minDate: new Date()
+  });
+
+}).call(this);
+:ET

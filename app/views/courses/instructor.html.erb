@@ -1,0 +1,22 @@
+<h1>Current Instructor</h1>
+<p>
+  <strong>Instructor Photo:</strong><br>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @instructor.username %>
+</p>
+<p>
+  <strong>First name:</strong>
+  <%= @instructor.first_name %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @instructor.last_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @instructor.email %>
+</p>
+<%= link_to 'Back', :back %>
