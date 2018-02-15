@@ -2,14 +2,8 @@
 
 one:
   name: MyString
-<<<<<<< HEAD
   description: MyText
 
 two:
   name: MyString
   description: MyText
-=======
-
-two:
-  name: MyString
->>>>>>> initial commit
