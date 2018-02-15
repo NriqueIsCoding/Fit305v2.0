@@ -27,10 +27,21 @@ body{
 /*cover */
 #cover{
   width: 100%;
-  height: 100%;
+  height: 120%;
   background: #222 url('image003.png') center no-repeat;
   background-size: cover;
-  color: black;
+  color: gray;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#instructor-cover{
+  width: 100%;
+  height: 110%;
+  background: #222 url('instructor006.jpg') top no-repeat;
+  background-size: cover;
+  color:black;
   text-align: center;
   display: flex;
   align-items: center;
@@ -44,7 +55,15 @@ body{
   border-width: 0;
 }
 
-.text-signup-message{
-  font-size: 12px;
-
+#footer-main{
+  background: #222;
+  color: white;
+  font-size:0.8rem;
 }
+.navbar-nav a{
+    // color: white !important;
+    font-size: 15px !important;
+    }
+.navbar-nav li{
+    padding-right:10px; 
+  }
