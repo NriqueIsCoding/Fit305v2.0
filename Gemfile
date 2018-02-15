@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails_12factor', group: :production
 gem 'bootstrap', '~> 4.0.0'
 gem 'autoprefixer-rails'
 gem 'flexbox-rails', '~> 1.0'

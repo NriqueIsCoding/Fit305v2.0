@@ -3,9 +3,8 @@
 one:
   name: MyString
   description: MyText
-  image_url: lorem.jpg
+  
 
 two:
   name: MyString
   description: MyText
-  image_url: lorem.jpg
