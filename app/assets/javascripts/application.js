@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
 $(document).ready(function(){
    var scroll_start = 0;
    var startchange = $('#startchange');
