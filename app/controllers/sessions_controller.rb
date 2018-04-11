@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       session[:instructor_id] = instructor.id
       redirect_to instructor_path(instructor.id)
     else
-      redirect_to login_path, notice: "User not found. Please try again."
+      redirect_to root_path, notice: "Email or password incorrect. Please try again."
     end
 
   end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     session[:customer_id] = nil
     session[:instructor_id] = nil
 
-    flash[:notice] = "You have successfully logged out."
+    # flash[:notice] = "You have successfully logged out."
 
     redirect_to root_path
   end

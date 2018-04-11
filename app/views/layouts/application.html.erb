@@ -15,16 +15,20 @@
   <body>
 
     <nav class="navbar navbar-default fixed-top navbar-expand-sm navbar-inverse" id="nav-main">
-      <a class="navbar-brand" href="#">My Logo</a>
+      <a class="navbar-brand" href="#"><%= image_tag("logo.png",size: "120x50")%></a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto py-2">
+        <ul class="nav navbar-nav  py-2">
           <li class="nav-item active">
             <a class="nav-link" href= <%= root_url %>>Home <span class="sr-only">(current)</span></a>
           </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto py-2">
 
           <% if current_customer %>
               <li class="nav-item">
@@ -34,8 +38,11 @@
                 <%= link_to 'Log Out', logout_path %>
               </li>
           <% elsif current_instructor%>
+              <li  class="nav-item">
+                <p class="lead pt-2">Hello,</p>
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href= <%= instructor_path(current_instructor) %>>Welcome, <%= current_instructor.first_name %><span class="sr-only">(current)</span></a>
+                <a class="nav-link text-secondary pl-0 pt-2" href= <%= instructor_path(current_instructor) %>> <%= current_instructor.first_name.capitalize %><span class="sr-only">(current)</span></a>
                 <!-- Welcome<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a> -->
               </li>
              <li class="nav-item">
@@ -78,9 +85,9 @@
     </div> -->
     <!-- <hr> -->
 
-      <div class="">
+      <!-- <div class="">
         <%= flash[:notice] %>
       </div>
-      <%= yield %>
+      <%= yield %> -->
     </body>
 </html>

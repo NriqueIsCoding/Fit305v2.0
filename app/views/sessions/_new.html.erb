@@ -5,7 +5,11 @@
       <div class="col-sm-12 col-sm-offset-1">
         <h1 class="display-3">Fit 305</h1>
         <br>
+        <% if current_customer || current_instructor %>
+          <p class="h2 text-danger">Someone is already logged in...</p>
+        <% else %>
           <%= form_tag sessions_path do %>
+
             <div class="d-flex justify-content-center">
               <form action="" class="form-inline">
                 <div class="form-group pr-1">
@@ -24,11 +28,17 @@
                 <!-- <button class="btn btn-success btn-md bg-danger no-border" type="submit" name="button">Login!</button> -->
               </form>
             </div>
-          <% end %>
-          <p class="text-signup-message font-weight-bold">
+            <div class="d-flex justify-content-center">
+              <% if flash[:notice] %>
+                <div class="notice"><%= flash[:notice] %></div>
+              <% end %>
+            </div>
+            <% end %>
+          <!-- <p class="text-signup-message font-weight-bold">
             <a href="#" class="nounderline deco">Forgot username/password?</a>
             <a href="#" class="nounderline deco">Not enrolled? sign up now</a>
-          </p>
+          </p> -->
+        <% end %>
       </div>
     </div>
   </div>

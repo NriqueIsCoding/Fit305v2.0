@@ -3,9 +3,6 @@ class InstructorsController < ApplicationController
 
   before_action :authorize_instructor, except: [:new, :create, :destroy, :index, :show]
 
-
-
-
   # GET /instructors
   # GET /instructors.json
   def index

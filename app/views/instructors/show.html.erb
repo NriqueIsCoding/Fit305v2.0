@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<section id="instructor-cover" >
+<!-- <section id="instructor-cover" >
   <div id="cover-caption">
     <div class="container mb-5">
       <div class="col-sm-12 col-sm-offset-1">
@@ -10,52 +10,92 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+  <!-- <div class="jumbotron jumbotron-fluid bg-danger text-center instructor-banner instructor-banner-padding">
+    <h1 class="display-4">Instructor</h3>
+    <p class="lead">See the results. Feel the difference. It will be worth it</p>
+  </div> -->
 
 
+  <!-- cards -->
+  <!-- <div class="row my-4">
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card" style="width: 15rem;">
+        <%= image_tag "trainer004.jpg", size: "260x150", class: "card-img-top"%>
+        <div class="card-body">
+          <h5 class="card-title">Joanne Carter</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">More about me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card" style="width: 15rem;">
+        <%= image_tag("trainer006.jpg",size: "260x150", class: "card-img-top")%>
+        <div class="card-body">
+          <h5 class="card-title">Miguel Sanitario</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">More about me</a>
+        </div>
+      </div>
+    </div> -->
 
 
-<h1>Current Instructor</h1>
-<p>
-  <strong>Instructor Photo:</strong><br>
-  <%= image_tag @instructor.image.url(:thumb) %>
-</p>
-<p>
-  <strong>Username:</strong>
-  <%= @instructor.username %>
-</p>
-<p>
-  <strong>First name:</strong>
-  <%= @instructor.first_name %>
-</p>
-<p>
-  <strong>Last name:</strong>
-  <%= @instructor.last_name %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @instructor.email %>
-</p>
-<%= link_to 'Edit', edit_instructor_path(@instructor) %>
-<%#= link_to 'Show', instructor_path %>
-<%= link_to 'Remove', @instructor, method: :delete, data: { confirm: 'Are you sure?' }%>
-<%#= link_to 'Back', instructors_path %>
-<br>
+<div class="container justify-content-center margin-top">
 
-<hr>
+<div class="row">
+  <div class="col-md-6 col-lg-8">
+    <h1>Current Instructor</h1>
+    <p>
+      <strong>Instructor Photo:</strong><br>
+      <%= image_tag @instructor.image.url(:thumb) %>
+    </p>
 
-<h1>Current Courses</h1>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <p>
+      <strong>Username:</strong>
+      <%= @instructor.username %>
+    </p>
+    <p>
+      <strong>First name:</strong>
+      <%= @instructor.first_name %>
+    </p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @instructor.last_name %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @instructor.email %>
+    </p>
+  </div>
+</div>
+    <%= link_to 'Edit', edit_instructor_path(@instructor) %>
+    <%#= link_to 'Show', instructor_path %>
+    <%= link_to 'Remove', @instructor, method: :delete, data: { confirm: 'Are you sure?' }%>
+    <%#= link_to 'Back', instructors_path %>
+    <br>
 
-<% if @instructor.courses.any? %>
-  <%= render 'courses/current', courses: @instructor.courses%>
-<% else  %>
-  <h3>No courses Added yet...</h3>
-<% end %>
+    <hr>
 
-<hr>
 
-<h1>Add New Course</h1>
+    <h1>Current Courses</h1>
 
-<%= render 'courses/addcourse', course: @instructor.courses.new %>
+    <% if @instructor.courses.any? %>
+      <%= render 'courses/current', courses: @instructor.courses%>
+    <% else  %>
+      <h3>No courses Added yet...</h3>
+    <% end %>
 
-<%= link_to 'Log out', logout_path %>
+    <hr>
+
+    <h1>Add New Course</h1>
+
+    <%= render 'courses/addcourse', course: @instructor.courses.new %>
+
+    <%= link_to 'Log out', logout_path %>
+</div>
