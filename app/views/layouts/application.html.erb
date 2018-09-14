@@ -14,80 +14,12 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-default fixed-top navbar-expand-sm navbar-inverse" id="nav-main">
-      <a class="navbar-brand" href="#"><%= image_tag("logo.png",size: "120x50")%></a>
+    <%= render 'layouts/navbar' %>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav  py-2">
-          <li class="nav-item active">
-            <a class="nav-link" href= <%= root_url %>>Home <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto py-2">
-
-          <% if current_customer %>
-              <li class="nav-item">
-                Welcome<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Log Out', logout_path %>
-              </li>
-          <% elsif current_instructor%>
-              <li  class="nav-item">
-                <p class="lead pt-2">Hello,</p>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-secondary pl-0 pt-2" href= <%= instructor_path(current_instructor) %>> <%= current_instructor.first_name.capitalize %><span class="sr-only">(current)</span></a>
-                <!-- Welcome<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a> -->
-              </li>
-             <li class="nav-item">
-               <!-- <%= link_to 'Log Out', logout_path %> -->
-               <a class="nav-link" href= <%= logout_path %>>Log Out<span class="sr-only">(current)</span></a>
-             </li>
-          <% else %>
-              <!-- <%= link_to 'Sign Up', signup_path %> -->
-              <a class="nav-link" href= <%= signup_path %>>Sign Up <span class="sr-only">(current)</span></a>
-          <% end %>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link" href= <%= root_url %>>Sign Up <span class="sr-only">(current)</span></a>
-          </li> -->
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 ml-3" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
-      </div>
-    </nav>
-
-    <!-- <div>
-      <%= link_to 'Home', root_url %> |
-      <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses', courses_path %>  | <%= link_to 'View Customers', customers_path %> |
-
-         <% if current_customer %>
-           Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-         <% elsif current_instructor%>
-          Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-         <% else %>
-
-         <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-       <% end %>
-
-    </div> -->
-    <!-- <hr> -->
-
-      <!-- <div class="">
-        <%= flash[:notice] %>
-      </div>
-      <%= yield %> -->
-    </body>
+    <div class="">
+          <%= flash[:notice] %>
+    </div>
+    <%= yield %>
+  </body>
 </html>

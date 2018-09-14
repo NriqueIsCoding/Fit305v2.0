@@ -1,6 +1,8 @@
 class Instructor < ApplicationRecord
   has_secure_password
+
   has_many :courses, dependent: :destroy
+
   has_many :customers, through: :courses
 
   validates :email, presence: true

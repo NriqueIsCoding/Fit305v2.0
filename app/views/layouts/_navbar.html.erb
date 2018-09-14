@@ -1,0 +1,51 @@
+<div class="container">
+
+<nav class="navbar navbar-default fixed-top navbar-expand-sm navbar-inverse" id="nav-main">
+    <a class="navbar-brand" href= "<%= root_path %>"><%= image_tag("logo.png",size: "120x50")%></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav  py-2">
+        <li class="nav-item active">
+
+          <a class="nav-link" href= <%= root_url %>>Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto py-2">
+
+        <% if current_customer %>
+            <li class="nav-item">
+              <p class="lead pt-2">Hello,</p>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_customer.first_name, customer_path(current_customer) %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Log Out', logout_path %>
+            </li>
+        <% elsif current_instructor%>
+            <li  class="nav-item">
+              <p class="lead pt-2">Hello,</p>
+            </li>
+            <li class="nav-item">
+              <%= link_to current_instructor.first_name.capitalize, instructor_path(current_instructor), class: "nav-link text-secondary pl-0 pt-2" %>
+            </li>
+           <li class="nav-item">
+             <%= link_to 'Log Out', logout_path, class: "nav-link" %>
+           </li>
+        <% else %>
+            <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
+        <% end %>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2 ml-3" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </ul>
+    </div>
+  </nav>
+</div>
